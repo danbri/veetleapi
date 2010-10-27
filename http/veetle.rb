@@ -22,6 +22,9 @@ data.each do |c|
      p = '/index.php/channel/ajaxInfo/' + c['channelId']
      y = http.get(p).body  
      print "\n\nChannel List data..."  
+     if (y==nil) 
+       next
+     end
      l = JSON.parse(y)
      l.each_key do |k|
        print "\t#{k}: #{l[k]}\n"
